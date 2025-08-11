@@ -4,7 +4,8 @@ let authInitialized = false;
 
 // Check authentication on page load
 window.onload = function() {
-    checkAuthentication();
+    // Don't redirect to login - let users browse freely
+    //checkAuthentication();
     loadJobs();
 };
 
@@ -19,11 +20,9 @@ function checkAuthentication() {
         document.getElementById('post-job-btn').style.display = 'flex';
         updateHeaderWithUser(currentUser);
     } else {
-        // No authentication found, redirect to login
-        setTimeout(() => {
-            console.log('No authenticated user, redirecting to login...');
-            window.location.href = 'login.html';
-        }, 1000);
+        // No authentication - show post button but it will trigger login
+        document.getElementById('post-job-btn').style.display = 'flex';
+        document.getElementById('post-job-btn').innerHTML = '<span>+</span> Post Job (Sign in required)';
     }
 }
 
@@ -65,7 +64,8 @@ const cancelPost = document.getElementById('cancel-post');
 
 postJobBtn.addEventListener('click', () => {
     if (!currentUser) {
-        alert('Please log in to post a job');
+        // Redirect to login page when user tries to post
+        window.location.href = 'login.html?redirect=jobs.html';
         return;
     }
     modal.style.display = 'block';
@@ -278,3 +278,14 @@ function filterJobs() {
 
     displayJobs(filteredJobs);
 }
+
+// Example rendering logic in job.js
+document.getElementById('jobs-container').innerHTML = jobs.map(job => `
+    <div class="job-card">
+        <div class="job-title">${job.title}</div>
+        <div class="job-company">${job.company}</div>
+        <div class="job-location">${job.location}</div>
+        <div class="job-description">${job.description}</div>
+        <!-- Add other job details here -->
+    </div>
+`).join('');
