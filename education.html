@@ -270,60 +270,70 @@
         // Display opportunities
         function displayOpportunities(opportunities) {
             const container = document.getElementById('opportunities-container');
-            const resultsCount = document.getElementById('results-count');
             
-            resultsCount.textContent = `Showing ${opportunities.length} opportunities`;
-            
-            if (opportunities.length === 0) {
-                container.innerHTML = '<p>No education opportunities found matching your criteria.</p>';
+            if (!opportunities || opportunities.length === 0) {
+                container.innerHTML = '<p>No education opportunities found.</p>';
                 return;
             }
 
-            const opportunitiesHTML = opportunities.map(opportunity => `
+            container.innerHTML = opportunities.map(opportunity => `
                 <div class="opportunity-card">
-                    <div class="opportunity-badges">
-                        <span class="badge ${opportunity.opportunity_type}-badge">${opportunity.opportunity_type || 'opportunity'}</span>
-                        <span class="badge country-badge">${opportunity.country || 'Global'}</span>
+                    ${opportunity.featured ? '<span class="featured-badge">Featured</span>' : ''}
+                    <div class="type-badges">
+                        <span class="type-badge ${opportunity.opportunity_type}-badge">${opportunity.opportunity_type}</span>
+                        <span class="type-badge country-badge">${opportunity.country}</span>
                     </div>
-                    
-                    <h3 class="opportunity-title">${opportunity.title}</h3>
-                    
-                    <div class="opportunity-institution">
-                        <span class="institution-icon">🏛️</span>
+                    <div class="opportunity-title">${opportunity.title}</div>
+                    <div class="university-info">
+                        <span>🎓</span>
                         <span>${opportunity.university}</span>
                     </div>
-                    
-                    <div class="opportunity-description">
-                        ${opportunity.description}
-                    </div>
-                    
-                    <div class="opportunity-meta">
-                        <div class="meta-item">
-                            <span class="meta-label">Posted by</span>
-                            <span class="meta-value">${opportunity.poster_name || 'Alumni'}</span>
-                        </div>
+                    <div class="opportunity-description">${opportunity.description}</div>
+                    <div class="opportunity-poster">Posted by ${opportunity.user_type ? opportunity.user_type : 'User'}</div>
+                    <div class="opportunity-details">
                         ${opportunity.deadline ? `
-                            <div class="meta-item">
-                                <span class="meta-label">Deadline</span>
-                                <span class="meta-value">${formatDate(opportunity.deadline)}</span>
+                            <div class="detail-item">
+                                <span class="detail-label">Deadline</span>
+                                <span class="detail-value">${formatDate(opportunity.deadline)}</span>
                             </div>
                         ` : ''}
                         ${opportunity.funding ? `
-                            <div class="meta-item">
-                                <span class="meta-label">Funding</span>
-                                <span class="meta-value">${opportunity.funding}</span>
+                            <div class="detail-item">
+                                <span class="detail-label">Funding</span>
+                                <span class="detail-value">${opportunity.funding.replace('-', ' ')}</span>
                             </div>
                         ` : ''}
                     </div>
-                    
-                    <div class="opportunity-actions">
-                        <button class="save-btn">Save</button>
-                        <button class="apply-btn">Apply</button>
+                    ${opportunity.requirements ? `
+                        <div class="requirements">
+                            <h4>Requirements:</h4>
+                            <div class="requirement-tags">
+                                ${opportunity.requirements.split(',').map(req => 
+                                    `<span class="requirement-tag">${req.trim()}</span>`
+                                ).join('')}
+                            </div>
+                        </div>
+                    ` : ''}
+                    <div class="opportunity-footer">
+                        <div class="opportunity-poster">Posted by ${opportunity.poster_name || 'Alumni'}</div>
+                        <div class="opportunity-actions">
+                            <button class="save-btn">Save</button>
+                            ${opportunity.application_url ? 
+                                `<button class="apply-btn" onclick="window.open('${opportunity.application_url}', '_blank')">Apply</button>` : 
+                                `<button class="apply-btn">Apply</button>`
+                            }
+                        </div>
                     </div>
                 </div>
             `).join('');
-            
-            container.innerHTML = opportunitiesHTML;
+
+            // Update results count
+            const totalCount = allOpportunities ? allOpportunities.length : opportunities.length;
+            const isFiltered = allOpportunities && opportunities.length !== totalCount;
+            const countMessage = isFiltered ? 
+                `Showing ${opportunities.length} of ${totalCount} opportunities` : 
+                `Showing ${opportunities.length} opportunities`;
+            document.getElementById('results-count').textContent = countMessage;
         }
 
         // Format date
