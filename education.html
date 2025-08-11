@@ -434,5 +434,49 @@
             displayOpportunities(filteredOpportunities);
         }
     </script>
+
+    <script>
+        // Simple function to truncate long descriptions
+        function addSeeMoreToLongDescriptions() {
+            // Wait for content to load
+            setTimeout(() => {
+                const descriptions = document.querySelectorAll('.opportunity-description');
+                
+                descriptions.forEach((desc, index) => {
+                    const text = desc.textContent.trim();
+                    
+                    if (text.length > 200) {
+                        const truncated = text.substring(0, 200).trim() + '...';
+                        const descId = `desc-${index}`;
+                        
+                        desc.innerHTML = `
+                            <div class="description-text" id="${descId}">${truncated}</div>
+                            <button class="see-more-btn" onclick="toggleDesc('${descId}', \`${text.replace(/`/g, '\\`')}\`)">
+                                see more
+                            </button>
+                        `;
+                    }
+                });
+            }, 1000);
+        }
+
+        function toggleDesc(id, fullText) {
+            const element = document.getElementById(id);
+            const btn = element.nextElementSibling;
+            
+            if (element.classList.contains('expanded')) {
+                element.textContent = fullText.substring(0, 200) + '...';
+                element.classList.remove('expanded');
+                btn.textContent = 'see more';
+            } else {
+                element.textContent = fullText;
+                element.classList.add('expanded');
+                btn.textContent = 'see less';
+            }
+        }
+
+        // Run when page loads
+        document.addEventListener('DOMContentLoaded', addSeeMoreToLongDescriptions);
+    </script>
 </body>
 </html>
