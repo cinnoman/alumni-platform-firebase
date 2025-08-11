@@ -102,21 +102,13 @@ body {
     margin-bottom: 2rem;
 }
 
-/* Fixed size cards with consistent height */
 .opportunity-card {
     background: white;
     border-radius: 12px;
     padding: 1.5rem;
-    margin-bottom: 1.5rem;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border: 1px solid #e5e7eb;
-    transition: all 0.3s ease;
-    /* Fixed height for consistency */
-    min-height: 400px;
-    max-height: 420px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    transition: transform 0.2s ease;
 }
 
 .opportunity-card:hover {
@@ -124,130 +116,134 @@ body {
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
 }
 
-.opportunity-header {
-    margin-bottom: 1rem;
-    flex-shrink: 0;
-}
-
-.opportunity-tags {
+.opportunity-badges {
     display: flex;
     gap: 0.5rem;
     margin-bottom: 1rem;
     flex-wrap: wrap;
-    flex-shrink: 0;
 }
 
-.opportunity-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1f2937;
-    margin: 0.75rem 0;
-    line-height: 1.4;
-    /* Limit title to 2 lines max */
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.opportunity-institution {
-    display: flex;
-    align-items: center;
-    color: #6b7280;
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
-    flex-shrink: 0;
-}
-
-.opportunity-description {
-    color: #4b5563;
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    flex-grow: 1;
-    overflow: hidden;
-}
-
-.description-text {
-    /* Fixed height for description area */
-    max-height: 4.5em; /* About 3 lines */
-    overflow: hidden;
-    line-height: 1.5;
-    transition: max-height 0.3s ease;
-}
-
-.description-text.expanded {
-    max-height: none;
-}
-
-.see-more-btn {
-    color: #2563eb;
-    background: none;
-    border: none;
-    font-size: 0.875rem;
-    cursor: pointer;
-    padding: 0;
-    margin-top: 0.5rem;
-    text-decoration: underline;
-    align-self: flex-start;
-}
-
-.see-more-btn:hover {
-    color: #1d4ed8;
-}
-
-.opportunity-footer {
-    margin-top: auto;
-    padding-top: 1rem;
-    border-top: 1px solid #f3f4f6;
-    flex-shrink: 0;
-}
-
-.opportunity-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-    font-size: 0.875rem;
-    color: #6b7280;
-}
-
-.opportunity-actions {
-    display: flex;
-    gap: 0.75rem;
-    justify-content: flex-end;
-    margin-top: auto;
-    padding-top: 1rem;
-}
-
-/* Tag styles */
-.tag {
+.badge {
     padding: 0.25rem 0.75rem;
     border-radius: 12px;
     font-size: 0.75rem;
     font-weight: 500;
 }
 
-.phd-tag {
+.phd-badge {
     background-color: #fef3c7;
     color: #d97706;
 }
 
-.masters-tag {
+.masters-badge {
     background-color: #dbeafe;
     color: #1d4ed8;
 }
 
-.scholarship-tag {
+.research-badge {
+    background-color: #f0fdf4;
+    color: #16a34a;
+}
+
+.scholarship-badge {
     background-color: #dcfce7;
     color: #16a34a;
 }
 
-.country-tag {
+.fellowship-badge {
+    background-color: #fdf2f8;
+    color: #ec4899;
+}
+
+.country-badge {
     background-color: #f3e8ff;
     color: #7c3aed;
 }
 
-/* Modal styles (same as jobs page) */
+.opportunity-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+}
+
+.opportunity-institution {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #6b7280;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.institution-icon {
+    font-size: 1rem;
+}
+
+.opportunity-description {
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.opportunity-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.meta-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.meta-label {
+    font-weight: 500;
+}
+
+.meta-value {
+    font-weight: 400;
+}
+
+.opportunity-actions {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: flex-end;
+}
+
+.save-btn {
+    background-color: #f8fafc;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
+.save-btn:hover {
+    background-color: #f1f5f9;
+}
+
+.apply-btn {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
+.apply-btn:hover {
+    background-color: #1d4ed8;
+}
+
+/* Modal styles */
 .modal {
     display: none;
     position: fixed;
@@ -339,15 +335,34 @@ body {
     cursor: pointer;
 }
 
-/* Responsive adjustments */
+/* Responsive design */
 @media (max-width: 768px) {
-    .opportunity-card {
-        min-height: 380px;
-        max-height: 380px;
-        padding: 1rem;
+    .featured-flex .opportunity-card {
+        flex: 1 1 100%;
+        max-width: 100%;
     }
     
-    .description-text {
-        max-height: 100px;
+    .header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+    
+    .filters {
+        flex-direction: column;
+    }
+    
+    .search-input {
+        min-width: 100%;
+    }
+    
+    .opportunity-meta {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .meta-item {
+        flex-direction: column;
+        gap: 0.25rem;
     }
 }
