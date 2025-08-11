@@ -33,7 +33,7 @@ body {
     color: #64748b;
 }
 
-.share-btn {
+.post-btn {
     background-color: #2563eb;
     color: white;
     border: none;
@@ -46,7 +46,7 @@ body {
     gap: 0.5rem;
 }
 
-.share-btn:hover {
+.post-btn:hover {
     background-color: #1d4ed8;
 }
 
@@ -77,191 +77,75 @@ body {
 .results-info {
     margin-bottom: 1.5rem;
     color: #64748b;
-}
-
-.featured-section {
-    margin-bottom: 2rem;
-}
-
-.featured-section h2 {
-    margin-bottom: 1rem;
-    color: #1e293b;
-}
-
-.featured-flex {
     display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    align-items: stretch;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.featured-flex .opportunity-card {
-    flex: 1 1 calc(50% - 2rem);
-    max-width: calc(50% - 2rem);
-    box-sizing: border-box;
-    margin-bottom: 2rem;
-}
-
-.opportunity-card {
+.education-card {
     background: white;
     border-radius: 8px;
     padding: 1.5rem;
+    margin-bottom: 1rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     border: 1px solid #e2e8f0;
-    position: relative;
 }
 
-.featured-badge {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background-color: #f59e0b;
-    color: white;
-    padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 500;
-}
-
-.opportunity-header {
+.education-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     margin-bottom: 1rem;
 }
 
-.opportunity-title {
+.education-title {
     font-size: 1.25rem;
     font-weight: 600;
     color: #1e293b;
-    margin-bottom: 0.5rem;
 }
 
-.university-info {
+.education-meta {
+    font-size: 0.95rem;
+    color: #64748b;
+}
+
+.education-description {
+    color: #4b5563;
+    margin: 1rem 0;
+}
+
+.education-footer {
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #2563eb;
-    margin-bottom: 0.5rem;
-}
-
-.opportunity-description {
-    color: #374151;
-    margin-bottom: 1rem;
-    line-height: 1.5;
-}
-
-.opportunity-details {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    justify-content: flex-end;
     gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.detail-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.detail-label {
-    font-size: 0.75rem;
-    color: #64748b;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    margin-bottom: 0.25rem;
-}
-
-.detail-value {
-    color: #1e293b;
-    font-weight: 500;
-}
-
-.requirements {
-    margin-bottom: 1rem;
-}
-
-.requirements h4 {
-    margin-bottom: 0.5rem;
-    color: #1e293b;
-}
-
-.requirement-tags {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-}
-
-.requirement-tag {
-    background-color: #f1f5f9;
-    color: #475569;
-    padding: 0.25rem 0.75rem;
-    border-radius: 4px;
-    font-size: 0.875rem;
-}
-
-.opportunity-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 1rem;
-    border-top: 1px solid #f1f5f9;
-}
-
-.opportunity-poster {
-    color: #64748b;
-    font-size: 0.875rem;
-}
-
-.opportunity-actions {
-    display: flex;
-    gap: 0.5rem;
-}
-
-.save-btn, .apply-btn {
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    font-size: 0.875rem;
-    cursor: pointer;
-    border: none;
 }
 
 .save-btn {
     background-color: #f8fafc;
     color: #64748b;
     border: 1px solid #e2e8f0;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
+.save-btn:hover {
+    background-color: #f1f5f9;
 }
 
 .apply-btn {
     background-color: #2563eb;
     color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.875rem;
 }
 
-.type-badges {
-    display: flex;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.type-badge {
-    padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-size: 0.75rem;
-    font-weight: 500;
-}
-
-.phd-badge {
-    background-color: #dbeafe;
-    color: #1d4ed8;
-}
-
-.masters-badge {
-    background-color: #dcfce7;
-    color: #16a34a;
-}
-
-.country-badge {
-    background-color: #fef3c7;
-    color: #d97706;
+.apply-btn:hover {
+    background-color: #1d4ed8;
 }
 
 /* Modal styles (same as jobs page) */
