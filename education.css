@@ -112,7 +112,7 @@ body {
     border: 1px solid #e5e7eb;
     transition: all 0.3s ease;
     /* Fixed height for consistency */
-    min-height: 420px;
+    min-height: 400px;
     max-height: 420px;
     display: flex;
     flex-direction: column;
@@ -169,8 +169,9 @@ body {
 
 .description-text {
     /* Fixed height for description area */
-    max-height: 120px;
+    max-height: 4.5em; /* About 3 lines */
     overflow: hidden;
+    line-height: 1.5;
     transition: max-height 0.3s ease;
 }
 
@@ -214,6 +215,8 @@ body {
     display: flex;
     gap: 0.75rem;
     justify-content: flex-end;
+    margin-top: auto;
+    padding-top: 1rem;
 }
 
 /* Tag styles */
