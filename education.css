@@ -104,26 +104,145 @@ body {
 
 .opportunity-card {
     background: white;
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 1.5rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 1px solid #e5e7eb;
-    transition: transform 0.2s ease;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    position: relative;
 }
 
-.opportunity-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+.featured-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: #f59e0b;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
 }
 
-.opportunity-badges {
+.opportunity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+
+.opportunity-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+}
+
+.university-info {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #2563eb;
+    margin-bottom: 0.5rem;
+}
+
+.opportunity-description {
+    color: #374151;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.opportunity-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.detail-label {
+    font-size: 0.75rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+}
+
+.detail-value {
+    color: #1e293b;
+    font-weight: 500;
+}
+
+.requirements {
+    margin-bottom: 1rem;
+}
+
+.requirements h4 {
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+}
+
+.requirement-tags {
     display: flex;
     gap: 0.5rem;
-    margin-bottom: 1rem;
     flex-wrap: wrap;
 }
 
-.badge {
+.requirement-tag {
+    background-color: #f1f5f9;
+    color: #475569;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+}
+
+.opportunity-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid #f1f5f9;
+}
+
+.opportunity-poster {
+    color: #64748b;
+    font-size: 0.875rem;
+}
+
+.opportunity-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.save-btn, .apply-btn {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    border: none;
+}
+
+.save-btn {
+    background-color: #f8fafc;
+    color: #64748b;
+    border: 1px solid #e2e8f0;
+}
+
+.apply-btn {
+    background-color: #2563eb;
+    color: white;
+}
+
+.type-badges {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.type-badge {
     padding: 0.25rem 0.75rem;
     border-radius: 12px;
     font-size: 0.75rem;
@@ -131,119 +250,21 @@ body {
 }
 
 .phd-badge {
-    background-color: #fef3c7;
-    color: #d97706;
-}
-
-.masters-badge {
     background-color: #dbeafe;
     color: #1d4ed8;
 }
 
-.research-badge {
-    background-color: #f0fdf4;
-    color: #16a34a;
-}
-
-.scholarship-badge {
+.masters-badge {
     background-color: #dcfce7;
     color: #16a34a;
 }
 
-.fellowship-badge {
-    background-color: #fdf2f8;
-    color: #ec4899;
-}
-
 .country-badge {
-    background-color: #f3e8ff;
-    color: #7c3aed;
+    background-color: #fef3c7;
+    color: #d97706;
 }
 
-.opportunity-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1f2937;
-    margin-bottom: 0.75rem;
-    line-height: 1.4;
-}
-
-.opportunity-institution {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: #6b7280;
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
-}
-
-.institution-icon {
-    font-size: 1rem;
-}
-
-.opportunity-description {
-    color: #4b5563;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-}
-
-.opportunity-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-    font-size: 0.875rem;
-    color: #6b7280;
-}
-
-.meta-item {
-    display: flex;
-    justify-content: space-between;
-}
-
-.meta-label {
-    font-weight: 500;
-}
-
-.meta-value {
-    font-weight: 400;
-}
-
-.opportunity-actions {
-    display: flex;
-    gap: 0.75rem;
-    justify-content: flex-end;
-}
-
-.save-btn {
-    background-color: #f8fafc;
-    color: #64748b;
-    border: 1px solid #e2e8f0;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.875rem;
-}
-
-.save-btn:hover {
-    background-color: #f1f5f9;
-}
-
-.apply-btn {
-    background-color: #2563eb;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.875rem;
-}
-
-.apply-btn:hover {
-    background-color: #1d4ed8;
-}
-
-/* Modal styles */
+/* Modal styles (same as jobs page) */
 .modal {
     display: none;
     position: fixed;
@@ -333,36 +354,4 @@ body {
     padding: 0.75rem 1.5rem;
     border-radius: 6px;
     cursor: pointer;
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
-    .featured-flex .opportunity-card {
-        flex: 1 1 100%;
-        max-width: 100%;
-    }
-    
-    .header {
-        flex-direction: column;
-        gap: 1rem;
-        align-items: flex-start;
-    }
-    
-    .filters {
-        flex-direction: column;
-    }
-    
-    .search-input {
-        min-width: 100%;
-    }
-    
-    .opportunity-meta {
-        flex-direction: column;
-        gap: 0.25rem;
-    }
-    
-    .meta-item {
-        flex-direction: column;
-        gap: 0.25rem;
-    }
 }
