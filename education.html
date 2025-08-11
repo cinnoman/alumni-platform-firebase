@@ -141,9 +141,11 @@
                 document.getElementById('share-opportunity-btn').style.display = 'flex';
                 updateHeaderWithUser(currentUser);
             } else {
-                // No authentication - show share button but it will trigger login
-                document.getElementById('share-opportunity-btn').style.display = 'flex';
-                document.getElementById('share-opportunity-btn').innerHTML = '<span>+</span> Share Opportunity (Sign in required)';
+                // No authentication found, redirect to login
+                setTimeout(() => {
+                    console.log('No authenticated user, redirecting to login...');
+                    window.location.href = 'login.html';
+                }, 1000);
             }
         }
 
@@ -185,8 +187,7 @@
 
         shareBtn.addEventListener('click', () => {
             if (!currentUser) {
-                // Redirect to login page when user tries to share
-                window.location.href = 'login.html?redirect=education.html';
+                alert('Please log in to share an opportunity');
                 return;
             }
             modal.style.display = 'block';
